@@ -5,5 +5,5 @@ import asyncio
 from typing import List
 
 async def async_comprehension() -> List:
-    result = [await async_generator() for num in async_generator()]
+    result = [num async for num in async_generator()]
     return result
