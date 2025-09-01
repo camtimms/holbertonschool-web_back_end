@@ -1,6 +1,6 @@
 export default function cleanSet(set, startString) {
   // Handle edge case: empty startString
-  if (!startString || startString === '') {
+  if (typeof startString !== 'string' || startString === '') {
     return '';
   }
 
