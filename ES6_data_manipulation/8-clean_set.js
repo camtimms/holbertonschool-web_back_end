@@ -8,7 +8,7 @@ export default function cleanSet(set, startString) {
 
   // Iterate through each element in the set
   for (const element of set) {
-    if (element.startsWith(startString)) {
+    if (typeof element === 'string' && element.startsWith(startString)) {
       const stringTail = element.slice(startString.length);
       results.push(stringTail);
     }
