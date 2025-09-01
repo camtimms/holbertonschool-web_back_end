@@ -4,7 +4,7 @@ export default function createInt8TypedArray(length = 0, position = 0, value = 0
 
   // Check if position is valid
   if (position >= length || position < 0) {
-    throw new Error('Postition outside range')
+    throw new Error('Position outside range')
   }
 
   // Create data view
