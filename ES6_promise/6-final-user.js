@@ -7,10 +7,14 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     uploadPhoto(fileName)
   ])
   .then((results) => {
-    // console.log("Raw results:", results);
-    return results.map(result => ({
+    console.log("Raw results:", results);
+    const resultmap = results.map(result => ({
       status: result.status,
-      value: result.value || result.reason
+      value: result.status === 'fulfilled'
+        ? result.value
+        : result.reason.toString()
     }));
+    console.log("Result map:", resultmap);
+    return resultmap;
   });
 }
