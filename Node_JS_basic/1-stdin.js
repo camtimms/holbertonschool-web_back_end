@@ -1,5 +1,5 @@
 // Display message
-console.log("Welcome to Holberton School, what is your name?");
+process.stdout.write("Welcome to Holberton School, what is your name?\n");
 
 // User imput
 process.stdin.on("data", data => {
@@ -9,5 +9,5 @@ process.stdin.on("data", data => {
 
 // Program exit message
 process.stdin.on("end", () => {
-  console.log("This important software is now closing");
+  process.stdout.write("This important software is now closing\n");
 });
