@@ -1,5 +1,5 @@
 // Display message
-process.stdout.write("Welcome to Holberton School, what is your name?\n");
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
 process.stdin.on('readable', () => {
   const input = process.stdin.read();
@@ -7,6 +7,6 @@ process.stdin.on('readable', () => {
 });
 
 // Program exit message
-process.stdin.on("end", () => {
-  process.stdout.write("This important software is now closing\n");
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
 });
