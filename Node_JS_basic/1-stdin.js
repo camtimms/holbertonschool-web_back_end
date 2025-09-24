@@ -1,10 +1,10 @@
 // Display message
 process.stdout.write("Welcome to Holberton School, what is your name?\n");
 
-// User imput
-process.stdin.on("data", data => {
+// User input
+process.stdin.on("data", (data) => {
   const name = data.toString().trim();
-  process.stdout.write(`Your name is: ${name}\r`);
+  process.stdout.write(`Your name is: ${name}\n`);
 })
 
 // Program exit message
