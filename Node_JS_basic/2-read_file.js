@@ -1,6 +1,6 @@
-function countStudents(path) {
-  const fs = require('node:fs');
+const fs = require('node:fs');
 
+function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf8');
     // Step 1: Split the file content into lines
@@ -13,19 +13,17 @@ function countStudents(path) {
     // Step 3: Get data rows (skip the header line)
     const dataRows = lines.slice(1);
 
-    // Step 4: Parse each row into a student object
+    // Step 4: Parse each row into a student object using headers
     const students = [];
-    for (let i = 0; i < dataRows.length; i++) {
+    for (let i = 0; i < dataRows.length; i += 1) {
       const row = dataRows[i];
       const values = row.split(',');
 
-      // Create a student object using headers as keys
-      const student = {
-        firstname: values[0],
-        lastname: values[1],
-        age: values[2],
-        field: values[3]
-      };
+      // Create a student object dynamically using headers as keys
+      const student = {};
+      for (let j = 0; j < headers.length; j += 1) {
+        student[headers[j]] = values[j];
+      }
 
       students.push(student);
     }
@@ -36,7 +34,7 @@ function countStudents(path) {
     const csStudents = [];
     const sweStudents = [];
 
-    for (let i = 0; i < students.length; i++) {
+    for (let i = 0; i < students.length; i += 1) {
       const student = students[i];
 
       if (student.field === 'CS') {
@@ -48,11 +46,10 @@ function countStudents(path) {
 
     // Step 6: Display results
     console.log(`Number of students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}`);
-    console.log(`Number of students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`)
-
+    console.log(`Number of students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`);
   } catch (err) {
     throw new Error('Cannot load the database');
   }
 }
 
-module.exports = countStudents
+module.exports = countStudents;
